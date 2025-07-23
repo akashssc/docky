@@ -2,7 +2,7 @@ body {
     font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #e0e7ff 0%, #f9fafb 100%);
+    background: linear-gradient(135deg, #f4f7fa 0%, #eafaff 100%);
     min-height: 100vh;
     color: #222;
     display: flex;
@@ -11,13 +11,47 @@ body {
     justify-content: flex-start;
 }
 
+/* --- Navbar styles --- */
+.navbar {
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(244, 247, 250, 0.95);
+    border-bottom: 2px solid #09D0FF;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90px;
+    box-shadow: 0 2px 12px rgba(9,208,255,0.08);
+    backdrop-filter: blur(16px) saturate(1.5);
+    -webkit-backdrop-filter: blur(16px) saturate(1.5);
+    border-radius: 0 0 2rem 2rem;
+}
+.navbar-title {
+    color: #09D0FF;
+    font-size: 4rem;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    text-shadow: 0 2px 12px rgba(9,208,255,0.18);
+    padding: 0.5rem 2.5rem;
+    border-radius: 1.5rem;
+    background: rgba(255,255,255,0.08);
+    box-shadow: 0 4px 24px rgba(9,208,255,0.10);
+}
+
+/* Remove .logo-text styles if not used elsewhere */
+.logo-text {
+    display: none !important;
+}
+
 .container {
-    max-width: 480px;
-    width: 100%;
-    margin: 0 auto;
+    margin-top: 8.5rem;
     background: #fff;
     border-radius: 1.5rem;
-    box-shadow: 0 8px 32px rgba(60, 60, 120, 0.12);
+    box-shadow: 0 8px 32px rgba(9,208,255,0.10);
     padding: 2.5rem 2rem 1.5rem 2rem;
     position: relative;
     z-index: 1;
@@ -26,7 +60,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 350px;
-    margin-top: 13.5rem;
+    color: #222;
 }
 
 @media (min-height: 700px) {
@@ -46,37 +80,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.logo-text {
-    font-size: 5rem;
-    font-weight: 900;
-    letter-spacing: 0.18em;
-    text-align: center;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    color: #102a56;
-    text-shadow: 0 8px 36px rgba(16,42,86,0.25), 0 2px 0 #fff;
-    z-index: 100;
-    position: fixed;
-    top: 200px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: max-content;
-    padding: 1.2rem 3.5rem;
-    border-radius: 2rem;
-    background: rgba(255,255,255,0.25);
-    box-shadow: 0 8px 32px 0 rgba(16,42,86,0.18);
-    backdrop-filter: blur(8px) saturate(1.2);
-    -webkit-backdrop-filter: blur(8px) saturate(1.2);
-    border: 1.5px solid rgba(16,42,86,0.18);
-}
-
-@media (max-width: 600px) {
-  .logo-text {
-    font-size: 2.5rem;
-    padding: 0.7rem 1.2rem;
-    top: 120px;
-  }
 }
 
 /* Admin dashboard specific logo positioning */
@@ -99,7 +102,7 @@ header h1 {
 }
 
 header .brand {
-    color: #2563eb;
+    color: #09D0FF;
     font-weight: 800;
     letter-spacing: 0.04em;
 }
@@ -118,7 +121,7 @@ header .subtitle {
 }
 
 .brand {
-    color: #2563eb;
+    color: #09D0FF;
     font-weight: bold;
 }
 
@@ -143,8 +146,8 @@ header .subtitle {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: #2563eb;
-    color: #fff;
+    background: #09D0FF;
+    color: #fff !important;
     border: none;
     border-radius: 2rem;
     padding: 0.75rem 2rem;
@@ -153,11 +156,11 @@ header .subtitle {
     margin: 0 1rem;
     cursor: pointer;
     transition: background 0.2s, box-shadow 0.2s;
-    box-shadow: 0 2px 8px rgba(60, 60, 120, 0.08);
+    box-shadow: 0 2px 8px rgba(9,208,255,0.08);
 }
 
 .role-btn:hover {
-    background: #1d4ed8;
+    background: #07a6c7;
 }
 
 .icon {
@@ -166,11 +169,19 @@ header .subtitle {
     object-fit: contain;
 }
 
+.icon-svg {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+
 footer {
     text-align: center;
-    color: #94a3b8;
+    color: #5e7a8a;
     font-size: 0.95rem;
     margin-top: 2rem;
+    background: transparent;
 }
 
 .decor {
@@ -179,26 +190,16 @@ footer {
     opacity: 0.18;
     z-index: 0;
 }
-.decor1 {
-    width: 180px;
-    height: 180px;
-    background: #2563eb;
-    top: -60px;
-    left: -60px;
-}
-.decor2 {
-    width: 120px;
-    height: 120px;
-    background: #fbbf24;
-    bottom: -40px;
-    right: -40px;
+/* Remove decor circles */
+.decor, .decor1, .decor2 {
+    display: none !important;
 }
 
 /* Modal styles */
 .modal-bg {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(30, 41, 59, 0.45);
+    background: rgba(9,208,255, 0.10);
     z-index: 1;
 }
 .modal-content {
@@ -211,6 +212,7 @@ footer {
     min-width: 320px;
     max-width: 90vw;
     text-align: center;
+    color: #222;
 }
 .close-modal {
     position: absolute;
@@ -219,12 +221,12 @@ footer {
     background: none;
     border: none;
     font-size: 1.5rem;
-    color: #64748b;
+    color: #09D0FF;
     cursor: pointer;
 }
 .modal-content h2 {
     margin-bottom: 1.5rem;
-    color: #2563eb;
+    color: #09D0FF;
 }
 .modal-content form {
     display: flex;
@@ -241,13 +243,15 @@ footer {
     font-size: 1rem;
     outline: none;
     transition: border 0.2s;
+    background: #f4f7fa;
+    color: #222;
 }
 .modal-content input:focus {
-    border: 1.5px solid #2563eb;
+    border: 1.5px solid #09D0FF;
 }
 .modal-content button[type="submit"] {
-    background: #2563eb;
-    color: #fff;
+    background: #09D0FF;
+    color: #181f27 !important;
     border: none;
     border-radius: 2rem;
     padding: 0.7rem 2rem;
@@ -257,11 +261,11 @@ footer {
     transition: background 0.2s;
 }
 .modal-content button[type="submit"]:hover {
-    background: #1d4ed8;
+    background: #07a6c7;
 }
 .switch-auth {
     margin-top: 0.5rem;
-    color: #64748b;
+    color: #09D0FF;
     font-size: 0.98rem;
 }
 #authMsg {
@@ -272,12 +276,12 @@ footer {
 }
 
 .file-preview {
-    background: #f1f5f9;
-    border: 1.5px dashed #2563eb;
+    background: #eafaff;
+    border: 1.5px dashed #09D0FF;
     border-radius: 0.7rem;
     padding: 1rem 1.5rem;
     margin-bottom: 1rem;
-    color: #2563eb;
+    color: #09D0FF !important;
     font-size: 1.1rem;
     text-align: center;
     min-width: 200px;
@@ -289,8 +293,8 @@ footer {
     margin-bottom: 1rem;
 }
 .upload-actions button {
-    background: #2563eb;
-    color: #fff;
+    background: #09D0FF;
+    color: #fff !important;
     border: none;
     border-radius: 2rem;
     padding: 0.7rem 1.7rem;
@@ -300,7 +304,7 @@ footer {
     transition: background 0.2s;
 }
 .upload-actions button:hover {
-    background: #1d4ed8;
+    background: #07a6c7;
 }
 #uploadMsg {
     margin-top: 0.7rem;
@@ -312,7 +316,7 @@ footer {
 
 /* Admin dashboard container wider and with subtle background */
 .admin-dashboard {
-    background: linear-gradient(120deg, #f1f5fa 0%, #e3eafc 100%);
+    background: linear-gradient(120deg, #f4f7fa 0%, #eafaff 100%);
     min-height: 100vh;
     width: 100vw;
     position: absolute;
@@ -333,6 +337,7 @@ footer {
     flex-direction: column;
     align-items: center;
     min-height: 500px;
+    color: #222;
 }
 
 /* Admin table improvements */
@@ -346,6 +351,7 @@ footer {
     overflow: hidden;
     margin: 2rem 0 1.5rem 0;
     font-size: 1.08rem;
+    color: #222;
 }
 .admin-table th, .admin-table td {
     border: none;
@@ -353,19 +359,19 @@ footer {
     text-align: left;
 }
 .admin-table th {
-    background: #2563eb;
-    color: #fff;
+    background: #09D0FF;
+    color: #fff !important;
     font-weight: 700;
 }
 .admin-table tr:nth-child(even) {
-    background: #f1f5f9;
+    background: #eafaff;
 }
 .admin-table tr:nth-child(odd) {
     background: #fff;
 }
 .download-btn {
     background: #22c55e;
-    color: #fff;
+    color: #fff !important;
     border: none;
     border-radius: 1.2rem;
     padding: 0.5rem 1.2rem;
@@ -376,4 +382,30 @@ footer {
 }
 .download-btn:hover {
     background: #16a34a;
+} 
+
+.dockkyy-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0 1.5rem 0;
+    width: 100%;
+}
+.dockkyy-logo svg {
+    max-width: 90vw;
+    max-height: 350px;
+    width: 500px;
+    height: 500px;
+    display: block;
+}
+@media (max-width: 600px) {
+    .dockkyy-logo svg {
+        max-width: 98vw;
+        max-height: 180px;
+        width: 100%;
+        height: auto;
+    }
+    .dockkyy-logo {
+        margin: 1rem 0 1rem 0;
+    }
 } 

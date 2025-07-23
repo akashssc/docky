@@ -67,7 +67,7 @@ function handleLogin(e) {
     const usernameOrEmail = form.username.value.trim();
     const password = form.password.value;
     const payload = usernameOrEmail.includes('@') ? { email: usernameOrEmail, password } : { username: usernameOrEmail, password };
-    const BASE_URL = 'https://prok-backend-66jc.onrender.com';
+    const BASE_URL = 'http://10.10.85.137:7621';
     fetch(`${BASE_URL}/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -97,7 +97,7 @@ function handleSignup(e) {
         document.getElementById('authMsg').textContent = 'Password must be at least 8 characters, include uppercase, lowercase, number, and symbol.';
         return;
     }
-    const BASE_URL = 'https://prok-backend-66jc.onrender.com';
+    const BASE_URL = 'http://10.10.85.137:7621';
     fetch(`${BASE_URL}/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -186,7 +186,7 @@ function showUserUploadPage(usernameOrEmail, password) {
             formData.append('username', usernameOrEmail);
         }
         formData.append('password', password);
-        const BASE_URL = 'https://prok-backend-66jc.onrender.com';
+        const BASE_URL = 'http://10.10.85.137:7621';
         fetch(`${BASE_URL}/upload`, {
             method: 'POST',
             body: formData
@@ -243,7 +243,7 @@ function handleAdminLogin(e) {
     const form = e.target;
     const username = form.username.value.trim();
     const password = form.password.value;
-    const BASE_URL = 'https://prok-backend-66jc.onrender.com';
+    const BASE_URL = 'http://10.10.85.137:7621';
     fetch(`${BASE_URL}/admin-login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -279,7 +279,7 @@ function showAdminDashboard(username, password) {
             </div>
         </div>
     `;
-    const BASE_URL = 'https://prok-backend-66jc.onrender.com';
+    const BASE_URL = 'http://10.10.85.137:7621';
     fetch(`${BASE_URL}/admin-files`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -306,7 +306,7 @@ function showAdminDashboard(username, password) {
                 btn.onclick = function() {
                     const fileId = btn.getAttribute('data-id');
                     const fileName = btn.getAttribute('data-name');
-                    const BASE_URL = 'https://prok-backend-66jc.onrender.com';
+                    const BASE_URL = 'http://10.10.85.137:7621';
                     fetch(`${BASE_URL}/download`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
